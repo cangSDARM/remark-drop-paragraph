@@ -1,0 +1,50 @@
+{
+  "name": "@allen/remark-drop-paragraph",
+  "version": "1.0.0-beta.0",
+  "description": "A remark plugin for dropping unnecessary paragraph nodes",
+  "author": "Allen Lee<648384410li@gmail.com>",
+  "license": "MIT",
+  "type": "module",
+  "exports": "./index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cangSDARM/remark-drop-paragraph.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cangSDARM/remark-drop-paragraph/issues"
+  },
+  "homepage": "https://github.com/cangSDARM/remark-drop-paragraph#readme",
+  "funding": "https://github.com/sponsors/cangSDARM",
+  "keywords": [
+    "markdown",
+    "mdast",
+    "mdx",
+    "remark",
+    "remark-plugin",
+    "unified",
+    "paragraph"
+  ],
+  "files": [
+    "index.js",
+    "index.d.ts"
+  ],
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "scripts": {
+    "prepack": "tsc --noEmit false",
+    "test": "echo \"no test yet\""
+  },
+  "dependencies": {
+    "unist-util-visit": "^4.1.2"
+  },
+  "devDependencies": {
+    "unified": "^10.0.0",
+    "@types/mdast": "^3.0.0",
+    "@types/node": "*",
+    "eslint": "^8.0.0",
+    "eslint-plugin-jsx-a11y": "^6.0.0",
+    "prettier": "^2.0.0",
+    "typescript": "^4.0.0"
+  }
+}

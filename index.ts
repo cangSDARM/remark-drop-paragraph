@@ -34,7 +34,7 @@ const remarkDropParagraph: Plugin<[RemarkDropParagraphOption?], Root> = (
     // not all inline
     return some.apply(nodes, [
       (child) => {
-        return unwrapTags(child.type || '');
+        return unwrapTags(child);
       },
     ]);
   };

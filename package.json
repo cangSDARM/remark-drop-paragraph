@@ -1,6 +1,6 @@
 {
-  "name": "@allen/remark-drop-paragraph",
-  "version": "1.0.0-beta.0",
+  "name": "@allenlee/remark-drop-paragraph",
+  "version": "0.0.2",
   "description": "A remark plugin for dropping unnecessary paragraph nodes",
   "author": "Allen Lee<648384410li@gmail.com>",
   "license": "MIT",
@@ -32,7 +32,7 @@
     "node": ">=14.0.0"
   },
   "scripts": {
-    "prepack": "tsc --noEmit false",
+    "build": "tsc --noEmit false",
     "test": "echo \"no test yet\""
   },
   "dependencies": {

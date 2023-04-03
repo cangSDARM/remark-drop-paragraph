@@ -1,4 +1,4 @@
-# @allen/remark-drop-paragraph
+# @allenlee/remark-drop-paragraph
 
 A [remark](https://remark.js.org) plugin for dropping unnecessary paragraph nodes
 
@@ -6,10 +6,8 @@ The idea behind this plugin: https://github.com/mdx-js/mdx/issues/1170#issuecomm
 
 ## Installation
 
-**Not available yet**
-
 ```sh
-npm install @allen/remark-drop-paragraph
+npm install @allenlee/remark-drop-paragraph
 ```
 
 ## Options
@@ -29,7 +27,7 @@ npm install @allen/remark-drop-paragraph
 ### Source
 
 ```ts
-const remarkDropParagraph = require('@allen/remark-drop-paragraph');
+const remarkDropParagraph = require('@allenlee/remark-drop-paragraph');
 
 remark().use(remarkDropParagraph).process(`
 <JsxOut>

@@ -14,10 +14,10 @@ jobs:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
-      - run: npm ci
+      - run: yarn install --frozen-lockfile
 
-      # - run: npm test
-      - run: npm run build
+      # - run: yarn run test
+      - run: yarn run build
 
       # new release
       - name: Bump version & publish
@@ -25,7 +25,7 @@ jobs:
           git config --global user.name "Allen Lee"
           git config --global user.email "648384410li@gmail.com"
 
-          npm version patch
+          yarn version --patch
 
           git push && git push --tags
 

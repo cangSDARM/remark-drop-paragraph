@@ -20,16 +20,16 @@ jobs:
       - run: yarn run build
 
       # new release
-      - name: Bump version & publish
-        run: |
-          git config --global user.name "Allen Lee"
-          git config --global user.email "648384410li@gmail.com"
+      # - name: Bump version & publish
+      #   run: |
+      #     git config --global user.name "${{ github.actor }}"
+      #     git config --global user.email "648384410li@gmail.com"
 
-          yarn version --patch
+      - run: yarn version --patch
 
-          git push && git push --tags
+      #     git push && git push --tags
 
       # to npm
-      - run: npm publish
+      - run: yarn publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}

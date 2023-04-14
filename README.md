@@ -66,7 +66,7 @@ paragraph2 out <JsxComponent />
 #### With this
 
 ```html
-<p>paragraph2</p> out <JsxComponent />
+<p>paragraph2 out</p> <JsxComponent />
 ```
 
 ### License

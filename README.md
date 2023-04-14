@@ -10,17 +10,27 @@ The idea behind this plugin: https://github.com/mdx-js/mdx/issues/1170#issuecomm
 npm install @allenlee/remark-drop-paragraph
 ```
 
+## Export
+
+see the comments or source code for more information
+
+- inlineElement
+- blockElement
+- isJsxElement
+- DefaultOption
+- type RemarkDropParagraphOption
+
 ## Options
 
 - `unwrapTags(paragraph's child per each)`<br/>
   If you need to unwrap outer paragraph, use this
   method to iterate through the paragraph's children nodes and unwrap when one returns true<br/>
-  default: `['div', 'aside', 'header', 'main', 'figure'].includes(node.type) || isJsxElement(node, true)`
+  default: `blockElement.includes(node.type) || isJsxElement(node, true)`
 - `noIncludeTags(paragraph's parent)`<br/>
   If you need to drop internal paragraph, use this method
   to iterate through the nodes that may contain paragraph, and drop the paragraph when it returns
   true<br/>
-  default: `['mdxBlockElement'].includes(node.type) || isJsxElement(node)`
+  default: `['mdxBlockElement'].includes(node.type) || isJsxElement(node, false)`
 
 ## Usage
 
@@ -56,11 +66,7 @@ paragraph2 out <JsxComponent />
 #### With this
 
 ```html
-<JsxOut>
-paragraph1 in
-</JsxOut>
-
-paragraph2 out <JsxComponent />
+<p>paragraph2</p> out <JsxComponent />
 ```
 
 ### License

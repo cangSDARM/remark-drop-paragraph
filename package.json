@@ -1,6 +1,6 @@
 {
   "name": "@allenlee/remark-drop-paragraph",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A remark plugin for dropping unnecessary paragraph nodes",
   "author": "Allen Lee<648384410li@gmail.com>",
   "license": "MIT",

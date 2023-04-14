@@ -5,9 +5,11 @@ import type { Root, Content } from 'mdast';
 
 type Node = Content & { children?: Content };
 
-// generated from: https://developer.mozilla.org/en-US/docs/Web/HTML/Inline_elements
-// Array.from(document.querySelectorAll('section[aria-labelledby="list_of_inline_elements"] > div > ul > li a code')).map((v) => v.innerText.replace(/<(.*)>/gi, '$1'))
-const inlineElement = [
+/**
+ * generated from: https://developer.mozilla.org/en-US/docs/Web/HTML/Inline_elements
+ * `Array.from(document.querySelectorAll('section[aria-labelledby="list_of_inline_elements"] > div > ul > li a code')).map((v) => v.innerText.replace(/<(.*)>/gi, '$1'))`
+ * */
+export const inlineElements = [
   'a',
   'abbr',
   'acronym',
@@ -64,15 +66,19 @@ const inlineElement = [
   'video',
   'wbr',
 ];
+/** **some** common block elements */
+export const blockElements = ['div', 'aside', 'header', 'image', 'main', 'figure', 'p'];
 
-export const isJsxElement = (node: Content & { name?: string }, notInlineHTML = false) => {
+/**
+ *
+ * @param noInlineHTML due to: https://github.com/syntax-tree/mdast-util-mdx-jsx mdxElement may contains some plain html element, we may exclude them
+ */
+export const isJsxElement = (node: Content & { name?: string }, noInlineHTML = false) => {
   const jsx = node.type?.startsWith('mdxJsx');
 
-  //due to: https://github.com/syntax-tree/mdast-util-mdx-jsx
-  //mdxElement may contains some plain html element, we may exclude them
-  if (!notInlineHTML || !node.name) return jsx;
+  if (!noInlineHTML || !node.name) return jsx;
 
-  return !inlineElement.includes(node.name) && jsx;
+  return !inlineElements.includes(node.name) && jsx;
 };
 
 const splice = ([] as Content[]).splice;
@@ -80,10 +86,9 @@ const paragraph = 'paragraph';
 
 export const DefaultOption = {
   unwrapTags: (node: Content) =>
-    ['div', 'aside', 'header', 'image', 'main', 'figure'].includes(node.type || '') ||
-    isJsxElement(node, true),
+    blockElements.includes(node.type || '') || isJsxElement(node, true),
   noIncludeTags: (node: Content) =>
-    ['mdxBlockElement'].includes(node.type || '') || isJsxElement(node),
+    ['mdxBlockElement'].includes(node.type || '') || isJsxElement(node, false),
 };
 
 export type RemarkDropParagraphOption = Partial<typeof DefaultOption>;

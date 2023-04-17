@@ -66,6 +66,10 @@ paragraph2 out <JsxComponent />
 #### With this
 
 ```html
+<JsxOut>
+  paragraph1 in
+</JsxOut>
+
 <p>paragraph2 out</p> <JsxComponent />
 ```
 

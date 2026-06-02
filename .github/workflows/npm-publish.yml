@@ -1,35 +1,25 @@
 
 name: Npm Publish
+
+permissions:
+  id-token: write  # Required for OIDC
+  contents: read
+
 on:
   workflow_dispatch:
+
 jobs:
   publish:
-    name: Build, bump & publish to npm
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
 
       - uses: actions/setup-node@v6
         with:
-          node-version: '20.x'
+          node-version: '24'
           registry-url: 'https://registry.npmjs.org'
-
-      - run: yarn install --frozen-lockfile
-
-      # - run: yarn run test
-      - run: yarn run build
-
-      # new release
-      - name: Bump version & publish
-        run: |
-          git config --global user.name "${{ github.actor }}"
-          git config --global user.email "648384410li@gmail.com"
-
-          yarn version --patch
-
-      #     git push && git push --tags
-
-      # to npm
-      - run: yarn publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
+          package-manager-cache: false  # never use caching in release builds
+      - run: npm ci
+      - run: npm run build --if-present
+      - run: npm test
+      - run: npm publish  # Or: npm stage publish

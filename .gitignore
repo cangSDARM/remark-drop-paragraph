@@ -5,5 +5,3 @@ node_modules/
 *.js
 *.log
 *.tgz
-
-package-lock.json

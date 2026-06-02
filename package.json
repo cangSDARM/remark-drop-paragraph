@@ -1,6 +1,6 @@
 {
   "name": "@allenlee/remark-drop-paragraph",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A remark plugin for dropping unnecessary paragraph nodes",
   "author": "Allen Lee<648384410li@gmail.com>",
   "license": "MIT",
@@ -36,15 +36,15 @@
     "test": "echo \"no test yet\""
   },
   "dependencies": {
-    "unist-util-visit": "^4.1.2"
+    "unist-util-visit": "^5.1.0"
   },
   "devDependencies": {
-    "@types/mdast": "^3.0.0",
+    "@types/mdast": "^4.0.4",
     "@types/node": "*",
     "eslint": "^8.0.0",
     "eslint-plugin-jsx-a11y": "^6.0.0",
     "prettier": "^2.0.0",
     "typescript": "^4.0.0",
-    "unified": "^10.1.2"
+    "unified": "^11.0.5"
   }
 }

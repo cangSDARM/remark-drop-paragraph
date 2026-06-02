@@ -143,27 +143,20 @@ const remarkDropParagraph: Plugin<[RemarkDropParagraphOption?], Root> = (options
   };
 
   function visitor(node: Node, index: number | null, parent: Node | undefined) {
-    // if there are children available keep diving into them
-    if (Array.isArray(node.children)) {
-      node.children.forEach(function (child) {
-        visit(child, visitor as any);
-      });
-    }
-
     const isParagraph = node.type === paragraph;
 
     if (isParagraph && parent && typeof index === 'number') {
       if (isNeedCleanInnerParagraph(parent)) {
         splice.apply(parent.children, [index, 1, ...(node.children || [])]);
 
-        return [SKIP, index];
+        return SKIP;
       }
 
       const { needClean, children } = travelChildren(node.children || []);
       if (needClean) {
         splice.apply(parent.children, [index, 1, ...children]);
 
-        return [SKIP, index];
+        return SKIP;
       }
     }
   }
